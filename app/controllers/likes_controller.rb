@@ -10,5 +10,4 @@ class LikesController < ApplicationController
     current_user.unlike(post)
     redirect_back fallback_location: root_path
   end
-  
 end
