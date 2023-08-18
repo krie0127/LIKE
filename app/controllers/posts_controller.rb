@@ -46,6 +46,7 @@ class PostsController < ApplicationController
 
   def likes
     @like_posts = current_user.like_posts.includes(:user).order(created_at: :desc)
+    # @liked_posts = current_user.liked_posts
   end
 
   private

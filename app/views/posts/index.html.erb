@@ -21,6 +21,13 @@
           <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% else %>
           <td><%= render 'like_button', post: post %></td>
+          # <td><%= link_to 'UnLike', post_like_path(post), method: :delete %></td>
+          # <% else %>
+          # <td><%= link_to 'Like', post_like_path(post), method: :post %></td>
+          <% end %>
+        <% end %>
+      </tr>
+    <% end %>
         <% end %>
       </tr>
     <% end %>
