@@ -5,7 +5,8 @@ class CreateLikes < ActiveRecord::Migration[5.2]
       t.references :post, foreign_key: true
 
       t.timestamps 
-      add.index likes, [:user_id, :post_id], unique: true
     end
+    
+      add_index :likes, [:user_id, :post_id], unique: true
   end
 end
