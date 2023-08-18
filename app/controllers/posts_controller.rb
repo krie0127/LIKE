@@ -7,7 +7,9 @@ class PostsController < ApplicationController
   end
 
   # GET /posts/1
-  def show; end
+  def show
+    @post = Post.find(params[:id])
+  end
 
   # GET /posts/new
   def new
@@ -20,7 +22,6 @@ class PostsController < ApplicationController
   # POST /posts
   def create
     @post = current_user.posts.build(post_params)
-
     if @post.save
       redirect_to @post, success: 'Post was successfully created.'
     else
@@ -41,6 +42,10 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     redirect_to posts_url, success: 'Post was successfully destroyed.'
+  end
+
+  def likes
+    @like_posts = current_user.like_posts.includes(:user).order(created_at: :desc)
   end
 
   private

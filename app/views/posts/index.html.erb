@@ -18,6 +18,8 @@
         <% if current_user.mine?(post) %>
           <td><%= link_to 'Edit', edit_post_path(post) %></td>
           <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% else %>
+          <td><%= render 'like_button', post: post %></td>
         <% end %>
       </tr>
     <% end %>
